@@ -1,5 +1,7 @@
 package com.minibank.model;
 
+import java.util.Objects;
+
 public class User implements Cloneable{
     private String name;
     private double balance;
@@ -38,5 +40,14 @@ public class User implements Cloneable{
         return "User [name=" + name +
                 ", balance=" + balance +
                 ", accountType=" + accountType + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj){ return true; }
+        if (obj == null || getClass() != obj.getClass()){ return false; }
+        User other = (User) obj;
+        return Double.compare(balance, other.balance) == 0 &&
+                Objects.equals(name, other.name);
     }
 }
