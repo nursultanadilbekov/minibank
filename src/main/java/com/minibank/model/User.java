@@ -50,4 +50,9 @@ public class User implements Cloneable{
         return Double.compare(balance, other.balance) == 0 &&
                 Objects.equals(name, other.name);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, balance);
+    }
 }
